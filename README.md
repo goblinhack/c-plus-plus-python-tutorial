@@ -159,3 +159,18 @@ Building
 --------
 
 ![Alt text](lesson2/screenshot.png?raw=true "hello colorful world")
+
+Lesson 3
+========
+
+TODO drawing lines
+
+Lesson 4
+========
+
+TODO frame buffer
+
+Lesson 5
+========
+
+TODO keyboard input
