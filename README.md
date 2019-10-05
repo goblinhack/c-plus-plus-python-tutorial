@@ -28,7 +28,7 @@ C++
 - Classes
 - Enums
 - Vectors
-- Initializer lists (c++ 11)
+- Initializer lists (you need C++ 11 for this)
 - Writing to the console
 - Asserts
 - Colors!
@@ -42,12 +42,22 @@ Python
 - Asserts
 - Colors!
 
-In the end, the Python implementation is a bit shorter.
+In the end, the Python implementation is a bit shorter. The C++ one will run
+quicker, but at this point it does not matter. We will deal with performance
+later.
 
-All the setup for the escape codes is done in a single class Ansii that
-you can pull into your code easily.
+The code
+--------
+
+All the setup for the escape code sequences is done in a single class Ansii that
+you can pull into your code easily. To understand escape code sequences is not
+essential, but you'd be mad to not want to know this stuff! This link is really
+good:
+
+[this link](https://stackoverflow.com/questions/4842424/list-of-ansi-color-escape-sequences#4842438)
 
 Here is how it looks in C++
+---------------------------
 
 <pre>
     int main (int argc, char *argv[])
@@ -74,7 +84,8 @@ Here is how it looks in C++
     }
 </pre>
 
-And is how it looks in Python:
+And is how it looks in Python
+-----------------------------
 
 <pre>
     def lesson1():
