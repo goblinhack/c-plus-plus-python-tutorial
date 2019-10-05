@@ -42,8 +42,9 @@ Python
 - Asserts
 - Colors!
 
-Comparison of the two?
-----------------------
+Comparison of the C++ and Python?
+---------------------------------
+
 In the end, the Python implementation is a bit shorter. The C++ one will run
 quicker, but at this point it does not matter. We will deal with performance
 later.
@@ -52,10 +53,10 @@ C++ is a bit awkward with setting up of vectors of strings as we need to use
 C++11 initializer lists. Python is very easy in this regard.
 
 Python you need to avoid using print() as it always adds in newlines, and here
-we want raw access to the console.
+we want raw access to the console, hence sys.stdout.write works nicely.
 
-The code
---------
+Escape code stuff
+-----------------
 
 All the setup for the escape code sequences is done in a single class Ansii that
 you can pull into your code easily. To understand escape code sequences is not
@@ -64,8 +65,8 @@ good:
 
 [this link](https://stackoverflow.com/questions/4842424/list-of-ansi-color-escape-sequences#4842438)
 
-Here is how it looks in C++
----------------------------
+Lesson 1 C++:
+-------------
 
 <pre>
     int main (int argc, char *argv[])
@@ -92,8 +93,8 @@ Here is how it looks in C++
     }
 </pre>
 
-And thiis how it looks in Python
---------------------------------
+Lesson 1 Python:
+----------------
 
 <pre>
     def lesson1():
@@ -130,11 +131,15 @@ And thiis how it looks in Python
     lesson1()
 </pre>
 
-To build and run the examples, try the following:
-
-![Alt text](lesson1/screenshot2.png?raw=true "hello colorful world")
-
 Lesson 2: Drawing lines
 =======================
 
 Stay tuned!
+
+Building
+========
+
+To build and run all examples, try the following:
+
+![Alt text](lesson1/screenshot2.png?raw=true "hello colorful world")
+
