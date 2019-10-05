@@ -156,7 +156,7 @@ Python
 - class inheritance (Terminal inherits Ansi class)
 - modules, we've split ansi and terminal code out to their own modules
 - python is much cleaner at getting the terminal size here than C++
-- __str__ methods for classes so they can print themselves
+- \__str__ methods for classes so they can print themselves
 
 Comparison of C++ and Python for lesson 2?
 ------------------------------------------
