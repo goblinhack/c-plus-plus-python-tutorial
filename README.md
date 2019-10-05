@@ -60,10 +60,7 @@ Escape code stuff
 
 All the setup for the escape code sequences is done in a single class Ansii that
 you can pull into your code easily. To understand escape code sequences is not
-essential, but you'd be mad to not want to know this stuff! This link is really
-good:
-
-[this link](https://stackoverflow.com/questions/4842424/list-of-ansi-color-escape-sequences#4842438)
+essential, but you'd be mad to not want to know this stuff! [this link](https://stackoverflow.com/questions/4842424/list-of-ansi-color-escape-sequences#4842438) is really good:
 
 Lesson 1 in C++:
 -----------------
