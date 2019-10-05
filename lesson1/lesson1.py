@@ -273,11 +273,14 @@ def lesson1():
                         ansii.Code.BACKGROUND_WHITE):
         for fg_col in range(ansii.Code.FOREGROUND_BLACK,
                             ansii.Code.FOREGROUND_WHITE):
-            sys.stdout.write("{0: <20} {1: <20}".format(\
-                             ansii.get_code_name(bg_col),
-                             ansii.get_code_name(fg_col)))
+            sys.stdout.write(ansii.get_code(bg_col))
+            sys.stdout.write("{0: <20}".format(ansii.get_code_name(bg_col)))
+            sys.stdout.write(ansii.get_code(ansii.Code.RESET))
+            sys.stdout.write(ansii.get_code(fg_col))
+            sys.stdout.write("{0: <20}".format(ansii.get_code_name(fg_col)))
+            sys.stdout.write(ansii.get_code(ansii.Code.RESET))
             sys.stdout.write(ansii.get_bgfg_code(bg_col, fg_col))
-            sys.stdout.write("colorful")
+            sys.stdout.write("combined")
             sys.stdout.write(ansii.get_code(ansii.Code.RESET))
             print()
 

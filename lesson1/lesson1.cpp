@@ -299,11 +299,15 @@ int main (int argc, char *argv[])
         for (unsigned char fg = ansii.FOREGROUND_BLACK;
                            fg <= ansii.FOREGROUND_WHITE;
                            fg++) {
+            std::cout << ansii.get_code(ansii.RESET);
+            std::cout << ansii.get_code(bg);
             std::cout << std::left << std::setw(20) << ansii.get_code_name(bg) << " ";
+            std::cout << ansii.get_code(ansii.RESET);
+            std::cout << ansii.get_code(fg);
             std::cout << std::left << std::setw(20) << ansii.get_code_name(fg) << " ";
 
             std::cout << ansii.get_bgfg_code(bg, fg);
-            std::cout << "colorful";
+            std::cout << "combined";
             std::cout << ansii.get_code(ansii.RESET);
             std::cout << std::endl;
         }
