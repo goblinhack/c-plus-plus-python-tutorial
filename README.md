@@ -158,18 +158,4 @@ Python
 Building
 --------
 
-<pre>
-cd lesson2
-sh ./RUNME
-Compiling
-  c++ -std=c++11 -Werror -g -ggdb3 -O2 -Wall -c -o .o/lesson2.o lesson2.cpp
-  c++ .o/lesson2.o  -o lesson2
-To run the C++ version:
-  cd lesson2 ; ./lesson2
-C++ output:
-  C++: Your terminal size is (95, 45)
-To run the Python3 version:
-  cd lesson2 ; python3 ./lesson2.py
-Python output:
-  Python: Your terminal size is (95,45)
-</pre>
+![Alt text](lesson2/screenshot.png?raw=true "hello colorful world")
