@@ -185,7 +185,7 @@ Lesson 5
 
 TODO keyboard input
 
-Lesson 5
+Lesson 6
 ========
 
 TODO moving a shape around the screen
