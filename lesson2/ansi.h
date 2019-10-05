@@ -1,3 +1,8 @@
+//
+// ANSI escape code sequences
+//
+#ifndef ASCII_H
+#define ASCII_H
 #include <iostream>
 #include <iomanip>
 #include <vector>
@@ -182,7 +187,7 @@ public:
     };
 
     //
-    // Get the ansii escape sequence for the given code
+    // Get the ansi escape sequence for the given code
     //
     std::string get_code (unsigned char code)
     {
@@ -191,7 +196,7 @@ public:
     }
 
     //
-    // Get the human readable name for the ansii escape sequence
+    // Get the human readable name for the ansi escape sequence
     //
     std::string get_code_name (unsigned char code)
     {
@@ -280,60 +285,9 @@ public:
         STRESS_MARKING               = 64,
         ATTRIBUTES_OFF               = 65,
     };
-private:
+
     std::vector<std::string> codes;
     std::vector<std::string> code_names;
     std::vector<std::string> bgfg_codes;
 };
-
-int main (int argc, char *argv[])
-{
-    Ansi ansii;
-
-    //
-    // Print all 3-bit standard color combinations.
-    //
-    for (unsigned char bg = ansii.BACKGROUND_BLACK;
-                       bg <= ansii.BACKGROUND_WHITE;
-                       bg++) {
-        for (unsigned char fg = ansii.FOREGROUND_BLACK;
-                           fg <= ansii.FOREGROUND_WHITE;
-                           fg++) {
-            std::cout << ansii.get_code(ansii.RESET);
-            std::cout << ansii.get_code(bg);
-            std::cout << std::left << std::setw(20) << ansii.get_code_name(bg) << " ";
-            std::cout << ansii.get_code(ansii.RESET);
-            std::cout << ansii.get_code(fg);
-            std::cout << std::left << std::setw(20) << ansii.get_code_name(fg) << " ";
-
-            std::cout << ansii.get_bgfg_code(bg, fg);
-            std::cout << "combined";
-            std::cout << ansii.get_code(ansii.RESET);
-            std::cout << std::endl;
-        }
-    }
-
-    //
-    // Print a nice message
-    //
-    std::cout << std::endl;
-    std::cout << ansii.get_code(ansii.FOREGROUND_RED);
-    std::cout << "hello ";
-
-    std::cout << ansii.get_code(ansii.FOREGROUND_GREEN);
-    std::cout << "beautiful";
-    std::cout << ansii.get_code(ansii.RESET);
-
-    std::cout << ansii.get_code(ansii.FOREGROUND_CYAN);
-    std::cout << " colorful";
-    std::cout << ansii.get_code(ansii.RESET);
-
-    std::cout << ansii.get_code(ansii.FOREGROUND_BLUE);
-    std::cout << " world";
-    std::cout << ansii.get_code(ansii.RESET);
-
-    std::cout << " from C++";
-    std::cout << std::endl;
-
-    return (0);
-}
+#endif

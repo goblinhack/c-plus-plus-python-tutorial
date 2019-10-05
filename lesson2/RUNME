@@ -104,14 +104,14 @@ make all | sed 's/^/  /g'
 if [ $? -eq 0 ]
 then
     log_info "To run the C++ version:"
-    log_echo "  cd lesson1 ; ./lesson1"
+    log_echo "  cd lesson2 ; ./lesson2"
     log_info "C++ output:"
-    ./lesson1 | tail -1
+    script -t 0 -q /dev/null ./lesson2 | sed 's/^/  /g'
 
     log_info "To run the Python3 version:"
-    log_echo "  cd lesson1 ; python3 ./lesson1.py"
+    log_echo "  cd lesson2 ; python3 ./lesson2.py"
     log_info "Python output:"
-    python3 ./lesson1.py | tail -1
+    script -t 0 -q /dev/null python3 ./lesson2.py | sed 's/^/  /g'
 
     rm -f Makefile.bak
 else

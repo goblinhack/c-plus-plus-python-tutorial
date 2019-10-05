@@ -19,7 +19,7 @@
 
 . ./scripts/common.sh
 
-LESSONS="lesson1 "
+LESSONS="lesson1 lesson2 "
 
 for i in $LESSONS
 do

@@ -58,7 +58,7 @@ we want raw access to the console, hence sys.stdout.write works nicely.
 Escape code stuff
 -----------------
 
-All the setup for the escape code sequences is done in a single class Ansii that
+All the setup for the escape code sequences is done in a single class Ansi that
 you can pull into your code easily. To understand escape code sequences is not
 essential, but you'd be mad to not want to know this stuff! [this link](https://stackoverflow.com/questions/4842424/list-of-ansi-color-escape-sequences#4842438) is really good:
 
@@ -68,22 +68,22 @@ Lesson 1 in C++:
 <pre>
     int main (int argc, char *argv[])
     {
-        Ansii ansii;
+        Ansi ansi;
 
-        std::cout << ansii.get_code(ansii.FOREGROUND_RED);
+        std::cout << ansi.get_code(ansi.FOREGROUND_RED);
         std::cout << "hello ";
 
-        std::cout << ansii.get_code(ansii.FOREGROUND_GREEN);
+        std::cout << ansi.get_code(ansi.FOREGROUND_GREEN);
         std::cout << "beautiful";
-        std::cout << ansii.get_code(ansii.RESET);
+        std::cout << ansi.get_code(ansi.RESET);
 
-        std::cout << ansii.get_code(ansii.FOREGROUND_CYAN);
+        std::cout << ansi.get_code(ansi.FOREGROUND_CYAN);
         std::cout << " colorful";
-        std::cout << ansii.get_code(ansii.RESET);
+        std::cout << ansi.get_code(ansi.RESET);
 
-        std::cout << ansii.get_code(ansii.FOREGROUND_BLUE);
+        std::cout << ansi.get_code(ansi.FOREGROUND_BLUE);
         std::cout << " world";
-        std::cout << ansii.get_code(ansii.RESET);
+        std::cout << ansi.get_code(ansi.RESET);
         std::cout << std::endl;
 
         return (0);
@@ -96,47 +96,80 @@ Lesson 1 in Python:
 <pre>
     def lesson1():
         """ hello beautiful world """
-        ansii = Ansii()
+        ansi = Ansi()
     
-        for bg_col in range(ansii.Code.BACKGROUND_BLACK,
-                            ansii.Code.BACKGROUND_WHITE):
-            for fg_col in range(ansii.Code.FOREGROUND_BLACK,
-                                ansii.Code.FOREGROUND_WHITE):
+        for bg_col in range(ansi.Code.BACKGROUND_BLACK,
+                            ansi.Code.BACKGROUND_WHITE):
+            for fg_col in range(ansi.Code.FOREGROUND_BLACK,
+                                ansi.Code.FOREGROUND_WHITE):
                 sys.stdout.write("{0: <20} {1: <20}".format(\
-                                 ansii.get_code_name(bg_col),
-                                 ansii.get_code_name(fg_col)))
-                sys.stdout.write(ansii.get_bgfg_code(bg_col, fg_col))
+                                 ansi.get_code_name(bg_col),
+                                 ansi.get_code_name(fg_col)))
+                sys.stdout.write(ansi.get_bgfg_code(bg_col, fg_col))
                 sys.stdout.write("colorful")
-                sys.stdout.write(ansii.get_code(ansii.Code.RESET))
+                sys.stdout.write(ansi.get_code(ansi.Code.RESET))
                 print()
     
-        sys.stdout.write(ansii.get_code(ansii.Code.FOREGROUND_RED))
+        sys.stdout.write(ansi.get_code(ansi.Code.FOREGROUND_RED))
         sys.stdout.write("hello")
     
-        sys.stdout.write(ansii.get_code(ansii.Code.FOREGROUND_GREEN))
+        sys.stdout.write(ansi.get_code(ansi.Code.FOREGROUND_GREEN))
         sys.stdout.write(" beautiful")
     
-        sys.stdout.write(ansii.get_code(ansii.Code.FOREGROUND_CYAN))
+        sys.stdout.write(ansi.get_code(ansi.Code.FOREGROUND_CYAN))
         sys.stdout.write(" colorful")
     
-        sys.stdout.write(ansii.get_code(ansii.Code.FOREGROUND_BLUE))
+        sys.stdout.write(ansi.get_code(ansi.Code.FOREGROUND_BLUE))
         sys.stdout.write(" world")
     
-        sys.stdout.write(ansii.get_code(ansii.Code.RESET))
+        sys.stdout.write(ansi.get_code(ansi.Code.RESET))
         print("from Python")
     
     lesson1()
 </pre>
 
-Lesson 2: Drawing lines
-=======================
-
-Stay tuned!
-
 Building
-========
+--------
 
-To build and run all examples, try the following:
+To build and run (all) examples, try the following:
 
 ![Alt text](lesson1/screenshot2.png?raw=true "hello colorful world")
 
+
+Lesson 2: Getting the terminal info
+===================================
+
+Before we can do anything more advanced we need to know the terminal size.
+So we do that here, but also add in some more concepts:
+
+C++
+---
+- template class (point.h)
+- class inheritance (Terminal inherits Ansi class)
+- header files, we've split ansi and terminal code out to their own modules
+- some ioctl() ickyness for getting the terminal size
+
+Python
+------
+- class inheritance (Terminal inherits Ansi class)
+- modules, we've split ansi and terminal code out to their own modules
+- python is much cleaner at getting the terminal size here than C++
+
+Building
+--------
+
+<pre>
+cd lesson2
+sh ./RUNME
+Compiling
+  c++ -std=c++11 -Werror -g -ggdb3 -O2 -Wall -c -o .o/lesson2.o lesson2.cpp
+  c++ .o/lesson2.o  -o lesson2
+To run the C++ version:
+  cd lesson2 ; ./lesson2
+C++ output:
+  C++: Your terminal size is (95, 45)
+To run the Python3 version:
+  cd lesson2 ; python3 ./lesson2.py
+Python output:
+  Python: Your terminal size is (95,45)
+</pre>

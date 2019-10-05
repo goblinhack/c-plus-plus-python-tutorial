@@ -1,9 +1,7 @@
-'''
-lesson1 - print some colorful hello world message
-'''
-
 from enum import IntEnum
+import os
 import sys
+from point import Point
 
 class Ansi:
     '''
@@ -172,13 +170,13 @@ class Ansi:
         ]
 
     def get_code(self, code):
-        """ Get the ansii escape sequence for the given code """
+        """ Get the ansi escape sequence for the given code """
         code = int(code)
         assert code < len(self.codes)
         return self.codes[code]
 
     def get_code_name(self, code):
-        """ Get the human readable name for the ansii escape sequence """
+        """ Get the human readable name for the ansi escape sequence """
         code = int(code)
         assert code < len(self.codes)
         return self.code_names[code]
@@ -264,39 +262,3 @@ class Ansi:
         DOUBLE_OVERLINE = 63
         STRESS_MARKING = 64
         ATTRIBUTES_OFF = 65
-
-def lesson1():
-    """ hello beautiful world """
-    ansii = Ansi()
-
-    for bg_col in range(ansii.Code.BACKGROUND_BLACK,
-                        ansii.Code.BACKGROUND_WHITE):
-        for fg_col in range(ansii.Code.FOREGROUND_BLACK,
-                            ansii.Code.FOREGROUND_WHITE):
-            sys.stdout.write(ansii.get_code(bg_col))
-            sys.stdout.write("{0: <20}".format(ansii.get_code_name(bg_col)))
-            sys.stdout.write(ansii.get_code(ansii.Code.RESET))
-            sys.stdout.write(ansii.get_code(fg_col))
-            sys.stdout.write("{0: <20}".format(ansii.get_code_name(fg_col)))
-            sys.stdout.write(ansii.get_code(ansii.Code.RESET))
-            sys.stdout.write(ansii.get_bgfg_code(bg_col, fg_col))
-            sys.stdout.write("combined")
-            sys.stdout.write(ansii.get_code(ansii.Code.RESET))
-            print()
-
-    sys.stdout.write(ansii.get_code(ansii.Code.FOREGROUND_RED))
-    sys.stdout.write("hello")
-
-    sys.stdout.write(ansii.get_code(ansii.Code.FOREGROUND_GREEN))
-    sys.stdout.write(" beautiful")
-
-    sys.stdout.write(ansii.get_code(ansii.Code.FOREGROUND_CYAN))
-    sys.stdout.write(" colorful")
-
-    sys.stdout.write(ansii.get_code(ansii.Code.FOREGROUND_BLUE))
-    sys.stdout.write(" world")
-
-    sys.stdout.write(ansii.get_code(ansii.Code.RESET))
-    print(" from Python")
-
-lesson1()
