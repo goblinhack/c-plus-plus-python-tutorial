@@ -19,7 +19,7 @@ job.
 
 Here's how it will look in C++ and Python:
 
-![Alt text](lesson1/screenshot.1.png?raw=true "")
+![Alt text](lesson1/screenshot.png?raw=true "")
 
 Ignoring all the code for setting up the ANSII escape code sequences, in
 the end it is quite simple.
