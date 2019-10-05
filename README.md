@@ -92,5 +92,3 @@ To build and run the examples, try the following:
 
 ![Alt text](lesson1/screenshot2.png?raw=true "hello colorful world")
 
-`Redcarpet.new("Hello World!")`{:.ruby}
-`Redcarpet.new("Hello World!")`{:.py}
