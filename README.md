@@ -10,8 +10,8 @@ I will avoid use of external libraries, so things like writing colours to
 the console will be less portable than useing Curses, but will be more fun
 and educational.
 
-Hello Colorful World
-====================
+Lesson 1: Hello Colorful World
+==============================
 
 Let's begin with printing a colorful message to the console. You will need
 something that supports ANSI escape sequences. Most terminals should do the
@@ -92,3 +92,7 @@ To build and run the examples, try the following:
 
 ![Alt text](lesson1/screenshot2.png?raw=true "hello colorful world")
 
+Lesson 2: Drawing lines
+=======================
+
+Stay tuned!
