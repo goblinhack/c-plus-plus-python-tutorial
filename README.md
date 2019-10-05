@@ -65,8 +65,8 @@ good:
 
 [this link](https://stackoverflow.com/questions/4842424/list-of-ansi-color-escape-sequences#4842438)
 
-Lesson 1 C++:
--------------
+Lesson 1 in C++:
+-----------------
 
 <pre>
     int main (int argc, char *argv[])
@@ -93,8 +93,8 @@ Lesson 1 C++:
     }
 </pre>
 
-Lesson 1 Python:
-----------------
+Lesson 1 in Python:
+-------------------
 
 <pre>
     def lesson1():
