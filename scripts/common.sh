@@ -71,7 +71,7 @@ log() {
 }
 
 log_info() {
-    echo "${GREEN}$*${RESET}"
+    echo "${BLUE}$*${RESET}"
 }
 
 log_echo() {

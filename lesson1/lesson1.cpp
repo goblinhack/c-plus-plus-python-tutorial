@@ -327,7 +327,8 @@ int main (int argc, char *argv[])
     std::cout << ansii.get_code(ansii.FOREGROUND_BLUE);
     std::cout << " world";
     std::cout << ansii.get_code(ansii.RESET);
-    std::cout << std::endl;
+
+    std::cout << " from C++";
     std::cout << std::endl;
 
     return (0);

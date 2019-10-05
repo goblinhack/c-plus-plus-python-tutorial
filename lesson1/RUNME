@@ -98,29 +98,20 @@ fi
 log_info "Cleaning"
 make clobber | sed 's/^/  /g'
 
-CORES=""
-
-case `uname` in
-    *Darwin*)
-	CORES=`/usr/sbin/system_profiler -detailLevel full SPHardwareDataType  | grep Cores | sed 's/.*: //g'`
-    ;;
-
-    *inux*)
-	CORES=`cat /proc/cpuinfo | grep "cpu cores" | head -1 | awk '{print $4}'`
-    ;;
-esac
-
-if [ "$CORES" != "" ]
-then
-    CORES="-j $CORES"
-fi
-
 log_info "Compiling"
-make $CORES $* all
+make all | sed 's/^/  /g'
 
 if [ $? -eq 0 ]
 then
-    log_info "Run ./lesson1 to start"
+    log_info "To run the C++ version:"
+    log_echo "  cd lesson1 ; ./lesson1"
+    log_info "C++ output:"
+    ./lesson1 | tail -1
+
+    log_info "To run the Python3 version:"
+    log_echo "  cd lesson1 ; python3 ./lesson1.py"
+    log_info "Python output:"
+    python3 ./lesson1.py | tail -1
 
     rm -f Makefile.bak
 else
