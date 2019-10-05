@@ -23,7 +23,7 @@ LESSONS="lesson1 "
 
 for i in $LESSONS
 do
-    echo
     log "Building $i"
     (cd $i ; sh ./RUNME)
+    echo
 done

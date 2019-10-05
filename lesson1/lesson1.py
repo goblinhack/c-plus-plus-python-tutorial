@@ -294,6 +294,6 @@ def lesson1():
     sys.stdout.write(" world")
 
     sys.stdout.write(ansii.get_code(ansii.Code.RESET))
-    print("from Python")
+    print(" from Python")
 
 lesson1()
