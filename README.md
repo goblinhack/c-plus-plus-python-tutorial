@@ -21,10 +21,33 @@ Here's how it will look in C++ and Python:
 
 ![Alt text](lesson1/screenshot.png?raw=true "hello colorful world")
 
-Ignoring all the code for setting up the ANSII escape code sequences, in
-the end it is quite simple.
+This lesson will incorporate quite a lot of ideas:
 
-C++:
+C++
+---
+- Classes
+- Enums
+- Vectors
+- Initializer lists (c++ 11)
+- Writing to the console
+- Asserts
+- Colors!
+
+Python
+------
+- Classes
+- Enums
+- Lists in Python (really in the backed, they are implemented as arrays)
+- Writing to the console
+- Asserts
+- Colors!
+
+In the end, the Python implementation is a bit shorter.
+
+All the setup for the escape codes is done in a single class Ansii that
+you can pull into your code easily.
+
+Here is how it looks in C++
 
 <pre>
     int main (int argc, char *argv[])
@@ -51,7 +74,7 @@ C++:
     }
 </pre>
 
-Python:
+And is how it looks in Python:
 
 <pre>
     def lesson1():
