@@ -42,9 +42,17 @@ Python
 - Asserts
 - Colors!
 
+Comparison of the two?
+----------------------
 In the end, the Python implementation is a bit shorter. The C++ one will run
 quicker, but at this point it does not matter. We will deal with performance
 later.
+
+C++ is a bit awkward with setting up of vectors of strings as we need to use
+C++11 initializer lists. Python is very easy in this regard.
+
+Python you need to avoid using print() as it always adds in newlines, and here
+we want raw access to the console.
 
 The code
 --------
@@ -84,8 +92,8 @@ Here is how it looks in C++
     }
 </pre>
 
-And is how it looks in Python
------------------------------
+And thiis how it looks in Python
+--------------------------------
 
 <pre>
     def lesson1():
