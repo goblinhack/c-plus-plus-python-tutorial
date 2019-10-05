@@ -158,7 +158,7 @@ Python
 - python is much cleaner at getting the terminal size here than C++
 - __str__ methods for classes so they can print themselves
 
-Comparison of C++ and Python for lesson 1?
+Comparison of C++ and Python for lesson 2?
 ------------------------------------------
 
 Python is still making it easier. Wrapping the system calls to get the
