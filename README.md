@@ -24,7 +24,7 @@ Here's how it will look in C++ and Python:
 Ignoring all the code for setting up the ANSII escape code sequences, in
 the end it is quite simple.
 
-C++:
+- ![#f03c15](https://placehold.it/15/f03c15/000000?text=C++) `#f03c15`
 
 <pre>
     int main (int argc, char *argv[])
