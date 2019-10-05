@@ -42,8 +42,8 @@ Python
 - Asserts
 - Colors!
 
-Comparison of the C++ and Python?
----------------------------------
+Comparison of C++ and Python for lesson 1?
+------------------------------------------
 
 In the end, the Python implementation is a bit shorter. The C++ one will run
 quicker, but at this point it does not matter. We will deal with performance
@@ -148,12 +148,22 @@ C++
 - class inheritance (Terminal inherits Ansi class)
 - header files, we've split ansi and terminal code out to their own modules
 - some ioctl() ickyness for getting the terminal size
+- std::ostream& operator << for classes so they can print themselves
+- class operators
 
 Python
 ------
 - class inheritance (Terminal inherits Ansi class)
 - modules, we've split ansi and terminal code out to their own modules
 - python is much cleaner at getting the terminal size here than C++
+- __str__ methods for classes so they can print themselves
+
+Comparison of C++ and Python for lesson 1?
+------------------------------------------
+
+Python is still making it easier. Wrapping the system calls to get the
+terminal size is a no brainer in python and horrible in C++. C++ remains
+my favorite language, but we'll see how this progresses.
 
 Building
 --------

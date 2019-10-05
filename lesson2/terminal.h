@@ -3,7 +3,6 @@
 //
 // Terminal routines, like get the size
 //
-#include <iostream>
 
 #ifndef _WIN32
 #include <sys/ioctl.h>
