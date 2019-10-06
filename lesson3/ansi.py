@@ -169,6 +169,77 @@ class Ansi:
             "[47;34m", "[47;35m", "[47;36m", "[47;37m",
         ]
 
+        ''' 
+        using an enum is fine, but it leads a more to type here,
+        so declare the same constants locally
+        '''
+        self.RESET = 0
+        self.BOLD = 1
+        self.FAINT = 2
+        self.ITALIC = 3
+        self.UNDERLINE = 4
+        self.SLOW_BLINK = 5
+        self.RAPID_BLINK = 6
+        self.REVERSE_VIDEO = 7
+        self.CONCEAL = 8
+        self.CROSSED_OUT = 9
+        self.PRIMARY_FONT = 10
+        self.ALT_FONT1 = 11
+        self.ALT_FONT2 = 12
+        self.ALT_FONT3 = 13
+        self.ALT_FONT4 = 14
+        self.ALT_FONT5 = 15
+        self.ALT_FONT6 = 16
+        self.ALT_FONT7 = 17
+        self.ALT_FONT8 = 18
+        self.ALT_FONT9 = 19
+        self.FRAKTUR = 20
+        self.BOLD_OFF_OR_DOUBLE_UNDERLINE = 21
+        self.NORMAL_COLOR = 22
+        self.NOT_ITALIC = 23
+        self.UNDERLINE_OFF = 24
+        self.BLINK_OFF = 25
+        self.UNUSED = 25
+        self.INVERSE_OFF = 27
+        self.REVEAL = 28
+        self.NOT_CROSSED_OUT = 29
+        self.FOREGROUND_BLACK = 30
+        self.FOREGROUND_RED = 31
+        self.FOREGROUND_GREEN = 32
+        self.FOREGROUND_YELLOW = 33
+        self.FOREGROUND_BLUE = 34
+        self.FOREGROUND_MAGENTA = 35
+        self.FOREGROUND_CYAN = 36
+        self.FOREGROUND_WHITE = 37
+        self.FOREGROUND_COLOR2 = 38
+        self.DEFAULT_FOREGROUND_COLOR = 39
+        self.BACKGROUND_BLACK = 40
+        self.BACKGROUND_RED = 41
+        self.BACKGROUND_GREEN = 42
+        self.BACKGROUND_YELLOW = 43
+        self.BACKGROUND_BLUE = 44
+        self.BACKGROUND_MAGENTA = 45
+        self.BACKGROUND_CYAN = 46
+        self.BACKGROUND_WHITE = 47
+        self.BACKGROUND_COLOR2 = 48
+        self.DEFAULT_BACKGROUND_COLOR = 49
+        self.UNUSED2 = 49
+        self.FRAMED = 51
+        self.ENCIRCLED = 52
+        self.OVERLINED = 53
+        self.NOT_FRAMED_OR_ENCIRCLED = 54
+        self.NOT_OVERLINED = 55
+        self.UNUSED3 = 56
+        self.UNUSED4 = 57
+        self.UNUSED5 = 58
+        self.UNUSED6 = 59
+        self.UNDERLINE2 = 60
+        self.DOUBLE_UNDERLINE = 61
+        self.OVERLINE = 62
+        self.DOUBLE_OVERLINE = 63
+        self.STRESS_MARKING = 64
+        self.ATTRIBUTES_OFF = 65
+
     def get_code(self, code):
         """ Get the ansi escape sequence for the given code """
         code = int(code)
@@ -186,8 +257,8 @@ class Ansi:
         For speed and to avoid converting strings, we have a special lookup
         for background and foreground combinations.
         """
-        bg_col -= Ansi.Code.BACKGROUND_BLACK
-        fg_col -= Ansi.Code.FOREGROUND_BLACK
+        bg_col -= self.BACKGROUND_BLACK
+        fg_col -= self.FOREGROUND_BLACK
         bg_col = int(bg_col)
         fg_col = int(fg_col)
         code = bg_col * 8 + fg_col
