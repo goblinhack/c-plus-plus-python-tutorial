@@ -208,7 +208,7 @@ Python
                                 for y in range(self.size.y)] \
                                    for x in range(self.size.x)]
 </pre>
-  But this is more readable. Choose your poison. For us speed, wins.
+- But this is more readable. Choose your poison. For us speed, wins. Choose which to use depending on your needs of readability and maintainability versus speed.
 <pre>
         self.cursor_codes = []
         for x in range(0, self.size.x):
