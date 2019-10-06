@@ -173,7 +173,83 @@ Building
 Lesson 3
 ========
 
-TODO drawing lines
+Here we will draw a red line in both C++ and Python identicaly. We will also
+add some cursor manipulation routines so we can move the cursor around the 
+screen.
+
+You should see this:
+
+![Alt text](lesson3/screenshot.png?raw=true "hello colorful world")
+
+While writing to the console works well, it will result in flickering. Try
+for yourself with a loop of clear\_screen and drawing lines. To avoid this
+flickering we need to buffer up changes to the screen. We also need to avoid
+redrawing the same parts of the terminal over and over. e.g. if we draw two
+overlapping squares, we want to draw the overlap only once.
+
+For all these things we will need to do something like flip screens. A concept
+in games where you do all your writing to an off screen buffer and once per
+frame, print the contents of the buffer in one go. This is faster and should
+be less flickery, which is important as we are printing to a terminal, which
+are not always that fast. Stay tuned for lesson 4 where we conver that.
+
+C++
+---
+- Breshnam's line drawing algorithm, line.h
+- 2d std::vectors for cursor positioning, terminal.h
+- terminal manipulation, terminal.h e.g. cls, set\_cursor, set\_cursor\_bottom\_left, clear\_screen
+
+Python
+------
+- Breshnam's line drawing algorithm in line.py
+- 2d arrays for cursor positioning, terminal.py
+- terminal manipulation, terminal.py e.g. cls, set\_cursor, set\_cursor\_bottom\_left, clear\_screen
+
+Here is how it looks in use:
+
+Lesson 3 in C++:
+-----------------
+
+<pre>
+    int main (int argc, char *argv[])
+    {
+        Terminal term;
+
+        term.clear_screen();
+        std::cout << term.get_code(term.FOREGROUND_RED);
+        Line l(&term, Point(3, 10), Point(20,31));
+        l.draw('x');
+
+        term.set_cursor_bottom_left();
+        std::cout << term.get_code(term.FOREGROUND_GREEN);
+        std::cout << "C++: Line draw demo";
+        std::cout << term.get_code(term.RESET);
+        std::cout << std::endl;
+
+        return (0);
+    }
+</pre>
+
+Lesson 1 in Python:
+-------------------
+
+<pre>
+    def lesson3():
+        """ term size """
+        term = Terminal()
+
+        term.clear_screen();
+        sys.stdout.write(term.get_code(term.Code.FOREGROUND_RED))
+        l = Line(term, Point(3, 10), Point(20,31))
+        l.draw('x');
+
+        term.set_cursor_bottom_left()
+        sys.stdout.write(term.get_code(term.Code.FOREGROUND_GREEN))
+        print("Python: Line draw demo")
+        sys.stdout.write(term.get_code(term.Code.RESET))
+
+    lesson3()
+</pre>
 
 Lesson 4
 ========

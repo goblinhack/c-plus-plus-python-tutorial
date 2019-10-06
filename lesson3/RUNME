@@ -105,13 +105,9 @@ if [ $? -eq 0 ]
 then
     log_info "To run the C++ version:"
     log_echo "  cd lesson3 ; ./lesson3"
-    log_info "C++ output:"
-    script -t 0 -q /dev/null ./lesson3 | sed 's/^/  /g'
 
     log_info "To run the Python3 version:"
     log_echo "  cd lesson3 ; python3 ./lesson3.py"
-    log_info "Python output:"
-    script -t 0 -q /dev/null python3 ./lesson3.py | sed 's/^/  /g'
 
     rm -f Makefile.bak
 else

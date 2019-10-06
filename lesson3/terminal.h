@@ -42,28 +42,28 @@ public:
         std::cout << cursor_codes[p.x][p.y];
     }
 
-    void cls (void)
+    void clear_screen (void)
     {
         set_cursor(Point(0, 0));
         std::cout << "\033[2J";
     }
 
-    void bottom_left (void)
+    void set_cursor_bottom_left (void)
     {
         set_cursor(Point(0, size.y-1));
     }
 
-    void bottom_right (void)
+    void set_cursor_bottom_right (void)
     {
         set_cursor(Point(size.x-1, size.y-1));
     }
 
-    void top_left (void)
+    void set_cursor_top_left (void)
     {
         set_cursor(Point(0, 0));
     }
 
-    void top_right (void)
+    void set_cursor_top_right (void)
     {
         set_cursor(Point(size.x-1, 0));
     }

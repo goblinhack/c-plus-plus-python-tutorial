@@ -24,12 +24,12 @@ int main (int argc, char *argv[])
 {
     Terminal term;
 
-    term.cls();
+    term.clear_screen();
     std::cout << term.get_code(term.FOREGROUND_RED);
     Line l(&term, Point(3, 10), Point(20,31));
     l.draw('x');
 
-    term.bottom_left();
+    term.set_cursor_bottom_left();
     std::cout << term.get_code(term.FOREGROUND_GREEN);
     std::cout << "C++: Line draw demo";
     std::cout << term.get_code(term.RESET);

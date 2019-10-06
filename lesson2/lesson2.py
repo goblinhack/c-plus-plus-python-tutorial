@@ -11,7 +11,7 @@ def lesson2():
     term = Terminal()
 
     sys.stdout.write(term.get_code(term.Code.FOREGROUND_GREEN))
-    print("Python: Your terminal size is {}".format(term.size))
+    sys.stdout.write("Python: Your terminal size is {}".format(term.size))
     sys.stdout.write(term.get_code(term.Code.RESET))
 
 lesson2()
