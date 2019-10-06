@@ -202,6 +202,20 @@ C++
 Python
 ------
 - Breshnam's line drawing algorithm in line.py
+- Functional loops, e.g. you can write this loop in two ways. This way is faster
+<pre>
+        self.cursor_codes = [["\033[{};{}H".format(y, x) \
+                                for y in range(self.size.y)] \
+                                   for x in range(self.size.x)]
+</pre>
+But this is more readable. Choose your poison. For us speed, wins.
+<pre>
+        self.cursor_codes = []
+        for x in range(0, self.size.x):
+            self.cursor_codes.append([])
+            for y in range(0, self.size.y):
+                self.cursor_codes[x].append("\033[{};{}H".format(y, x))
+</pre>
 - 2d arrays for cursor positioning, terminal.py
 - terminal manipulation, terminal.py e.g. cls, set\_cursor, set\_cursor\_bottom\_left, clear\_screen
 
