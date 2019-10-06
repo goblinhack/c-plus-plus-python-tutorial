@@ -244,7 +244,7 @@ Lesson 3 in C++:
     }
 </pre>
 
-Lesson 1 in Python:
+Lesson 3 in Python:
 -------------------
 
 <pre>
