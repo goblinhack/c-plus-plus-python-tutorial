@@ -4,7 +4,7 @@ About
 Tired of boring examples in how to program? Of course you are! This little
 series aims to begin at something a bit more interesting than "hello world"
 and end up with a fun little demo. At all stages we will have the same demo
-written in C++ and then Python for comparison of the two languages. 
+written in C++ and then Python for comparison of the two languages.
 
 I will avoid use of external libraries, so things like writing colours to
 the console will be less portable than useing Curses, but will be more fun
@@ -15,7 +15,7 @@ Lesson 1: Hello Colorful World
 
 Let's begin with printing a colorful message to the console. You will need
 something that supports ANSI escape sequences. Most terminals should do the
-job. 
+job.
 
 Here's how it will look in C++ and Python:
 
@@ -97,7 +97,7 @@ Lesson 1 in Python:
     def lesson1():
         """ hello beautiful world """
         ansi = Ansi()
-    
+
         for bg_col in range(ansi.Code.BACKGROUND_BLACK,
                             ansi.Code.BACKGROUND_WHITE):
             for fg_col in range(ansi.Code.FOREGROUND_BLACK,
@@ -109,22 +109,22 @@ Lesson 1 in Python:
                 sys.stdout.write("colorful")
                 sys.stdout.write(ansi.get_code(ansi.Code.RESET))
                 print()
-    
+
         sys.stdout.write(ansi.get_code(ansi.Code.FOREGROUND_RED))
         sys.stdout.write("hello")
-    
+
         sys.stdout.write(ansi.get_code(ansi.Code.FOREGROUND_GREEN))
         sys.stdout.write(" beautiful")
-    
+
         sys.stdout.write(ansi.get_code(ansi.Code.FOREGROUND_CYAN))
         sys.stdout.write(" colorful")
-    
+
         sys.stdout.write(ansi.get_code(ansi.Code.FOREGROUND_BLUE))
         sys.stdout.write(" world")
-    
+
         sys.stdout.write(ansi.get_code(ansi.Code.RESET))
         print("from Python")
-    
+
     lesson1()
 </pre>
 
@@ -174,7 +174,7 @@ Lesson 3
 ========
 
 Here we will draw a red line in both C++ and Python identicaly. We will also
-add some cursor manipulation routines so we can move the cursor around the 
+add some cursor manipulation routines so we can move the cursor around the
 screen.
 
 You should see this:
@@ -264,18 +264,3 @@ Lesson 3 in Python:
 
     lesson3()
 </pre>
-
-Lesson 4
-========
-
-TODO frame buffer
-
-Lesson 5
-========
-
-TODO keyboard input
-
-Lesson 6
-========
-
-TODO moving a shape around the screen
